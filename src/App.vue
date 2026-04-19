@@ -374,12 +374,12 @@ export default {
           this.chartLast.data = [{
             "categoria": "Ganancia Total",
             "valor": interesTabla.toFixed(2),
-            "color": "#659F6B",
+            "color": "#4ed8c0",
           },
           {  
             "categoria": "Inversión Inicial",
             "valor": this.amount.toFixed(2),
-            "color": "#123B4F",
+            "color": "#7c6af7",
           },
           {
             "categoria": "Contribuciones",
@@ -460,33 +460,33 @@ export default {
       this.chart.data = [{
           "categoria": "Ganancia Total",
           "valor": interesTablaFirst,
-          "color": "#659F6B",
+          "color": "#4ed8c0",
         },
         {  
           "categoria": "Inversión Inicial",
           "valor": this.amount.toFixed(2),
-          "color": "#123B4F",
+          "color": "#7c6af7",
         },
         {
           "categoria": "Contribuciones",
           "valor": contribucionpie.toFixed(2),
-          "color": "#1D5F80",
+          "color": "#f06fba",
         }];
         
       this.chartLast.data = [{
           "categoria": "Ganancia Total",
           "valor": graficaStartInit.toFixed(2),
-          "color": "#659F6B",
+          "color": "#4ed8c0",
         },
         {  
           "categoria": "Inversión Inicial",
           "valor": this.amount.toFixed(2),
-          "color": "#123B4F",
+          "color": "#7c6af7",
         },
         {
           "categoria": "Contribuciones",
           "valor": (this.payment*nper).toFixed(2),
-          "color": "#1D5F80",
+          "color": "#f06fba",
         }];
     },
 
@@ -500,20 +500,22 @@ export default {
       if (this.chart.logo) {
         this.chart.logo.dispose()
       }
+      this.chart.background.fill = am4core.color("#0f0f18");
+      this.chart.background.fillOpacity = 1;
       this.chart.data = [{
           "categoria": "Ganancia Total",
           "valor": 0,
-          "color": "#659F6B",
+          "color": "#4ed8c0",
         },
-        {  
+        {
           "categoria": "Inversión Inicial",
           "valor": 0,
-          "color": "#123B4F",
+          "color": "#7c6af7",
         },
         {
           "categoria": "Contribuciones",
           "valor": 0,
-          "color": "#1D5F80",
+          "color": "#f06fba",
         }];
       let pieSeries = this.chart.series.push(new am4charts.PieSeries());
       pieSeries.dataFields.value = "valor";
@@ -536,10 +538,13 @@ export default {
       hs.properties.scale = 1.08;
       let as = pieSeries.slices.template.states.getKey("active");
       as.properties.shiftRadius = .1;
+      pieSeries.labels.template.fill = am4core.color("#6b6b80");
+      pieSeries.ticks.template.stroke = am4core.color("#6b6b80");
       this.chart.data.reverse();
       // LEYENDA
       this.chart.legend = new am4charts.Legend();
       this.chart.legend.valueLabels.template.text = "";
+      this.chart.legend.labels.template.fill = am4core.color("#eeeef6");
       let marker = this.chart.legend.markers.template.children.getIndex(0);
       marker.cornerRadius(15, 15, 15, 15);
       marker.strokeWidth = 2;
@@ -581,20 +586,22 @@ export default {
       if (this.chartLast.logo) {
         this.chartLast.logo.dispose()
       }
+      this.chartLast.background.fill = am4core.color("#0f0f18");
+      this.chartLast.background.fillOpacity = 1;
       this.chartLast.data = [{
           "categoria": "Ganancia Total",
           "valor": 0,
-          "color": "#659F6B",
+          "color": "#4ed8c0",
         },
-        {  
+        {
           "categoria": "Balance",
           "valor": 0,
-          "color": "#123B4F",
+          "color": "#7c6af7",
         },
         {
           "categoria": "Contribuciones",
           "valor": 0,
-          "color": "#1D5F80",
+          "color": "#f06fba",
         }];
       let pieSeriesLast = this.chartLast.series.push(new am4charts.PieSeries());
       pieSeriesLast.dataFields.value = "valor";
@@ -618,10 +625,13 @@ export default {
       hsLast.properties.scale = 1.08;
       let asLast = pieSeriesLast.slices.template.states.getKey("active");
       asLast.properties.shiftRadius = .1;
+      pieSeriesLast.labels.template.fill = am4core.color("#6b6b80");
+      pieSeriesLast.ticks.template.stroke = am4core.color("#6b6b80");
       this.chartLast.data.reverse();
       //LEYENDA
       this.chartLast.legend = new am4charts.Legend();
       this.chartLast.legend.valueLabels.template.text = "";
+      this.chartLast.legend.labels.template.fill = am4core.color("#eeeef6");
       let markerLast = this.chartLast.legend.markers.template.children.getIndex(0);
       markerLast.cornerRadius(15, 15, 15, 15);
       markerLast.strokeWidth = 2;
@@ -637,6 +647,8 @@ export default {
       if (this.chartBar.logo) {
         this.chartBar.logo.dispose()
       }
+      this.chartBar.background.fill = am4core.color("#0f0f18");
+      this.chartBar.background.fillOpacity = 1;
       this.chartBar.data = [{
         "date": "",
         "principal": 0,
@@ -679,9 +691,16 @@ export default {
       axisTooltip.animationDuration = 0;
       axisTooltip.dy = 5;
 
+      categoryAxis.renderer.labels.template.fill = am4core.color("#6b6b80");
+      categoryAxis.renderer.grid.template.stroke = am4core.color("#ffffff");
+      categoryAxis.renderer.grid.template.strokeOpacity = 0.05;
+
       let valueAxis = this.chartBar.yAxes.push(new am4charts.ValueAxis());
       valueAxis.numberFormatter.numberFormat = "'$'#,###.##";
       valueAxis.tooltip.disabled = true;
+      valueAxis.renderer.labels.template.fill = am4core.color("#6b6b80");
+      valueAxis.renderer.grid.template.stroke = am4core.color("#ffffff");
+      valueAxis.renderer.grid.template.strokeOpacity = 0.05;
 
       let valueAxis2 = this.chartBar.yAxes.push(new am4charts.ValueAxis());
       valueAxis2.renderer.opposite = true;
@@ -691,9 +710,9 @@ export default {
 
       //COLORES
       this.chartBar.colors.list = [
-        am4core.color("#123B4F"),
-        am4core.color("#659F6B"),
-        am4core.color("#E6AE3F"),
+        am4core.color("#7c6af7"),
+        am4core.color("#4ed8c0"),
+        am4core.color("#f06fba"),
       ];
       //CREATE SERIES
       let series = this.chartBar.series.push(new am4charts.ColumnSeries());
@@ -740,6 +759,7 @@ export default {
       this.chartBar.cursor.animationDuration = 0;
       //LEYENDA
       this.chartBar.legend = new am4charts.Legend();
+      this.chartBar.legend.labels.template.fill = am4core.color("#eeeef6");
       // BOTON ZOOM-OUT
       this.chartBar.zoomOutButton.align = "left";
       this.chartBar.zoomOutButton.valign = "top";
