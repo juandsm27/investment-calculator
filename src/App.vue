@@ -753,72 +753,117 @@ export default {
 }
 </script>
 <style>
+  :root {
+    --bg: #08080e;
+    --bg2: #0f0f18;
+    --bg3: #14141e;
+    --border: rgba(255,255,255,0.07);
+    --border-bright: rgba(255,255,255,0.15);
+    --text: #eeeef6;
+    --muted: #6b6b80;
+    --accent: #7c6af7;
+    --accent2: #4ed8c0;
+    --accent3: #f06fba;
+  }
+
+  body { background: var(--bg) !important; }
+
+  .v-application { background: var(--bg) !important; font-family: 'Syne', sans-serif !important; }
+
   input {
-    font-family: 'Barlow' !important;
-    background-color: #fff !important;
-    color: #666 !important;
+    font-family: 'Syne', sans-serif !important;
+    color: var(--text) !important;
+    background-color: transparent !important;
   }
-  .v-select .v-select__selection-text {
-    font-family: 'Barlow';
-  }
-  .tabtext {
-    color: white;
-  }
-  .monthly-payment-line {
-    width: 40px;
-    border-width: 2px !important;
-    margin-bottom: 5px !important;
-    background-color: rgb(182, 71, 12) !important;
-    border-color: rgb(182, 71, 12) !important;
-    opacity: initial;
-    margin-top: 20px !important;
-  }
-  .monthly-payment-title {
-    font-weight: bold;
-    color: rgb(182, 71, 12) !important;
-    font-size: 18px;
-    margin-bottom: 20px !important;
-  }
-  .titlepie {
-    margin-bottom: -20px !important;
-    font-family: "Barlow", !important;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 2rem;
-    color: #666 !important;
-    padding: 0px !important;
-  }
+
+  .v-select .v-select__selection-text { font-family: 'Syne', sans-serif !important; color: var(--text) !important; }
+
   .monthly-payment-mount {
-    font-family: "Barlow", !important;
-    font-weight: 700 !important;
-    font-size: 40px;
-    color: #666 !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 2.2rem !important;
+    color: var(--text) !important;
+    line-height: 1.1 !important;
   }
-  .calculator-investment{
-  line-height: 0.5em;
+
+  .monthly-payment-title {
+    font-family: 'Space Mono', monospace !important;
+    text-transform: uppercase !important;
+    font-weight: 400 !important;
+    font-size: 11px !important;
+    letter-spacing: 0.12em !important;
+    color: var(--muted) !important;
+    margin-bottom: 1rem !important;
+    margin-top: 4px !important;
   }
-  .chartWrapper {
-  width: 100%;
-  height: 500px;
+
+  .monthly-payment-line {
+    width: 32px !important;
+    border-width: 2px !important;
+    margin-bottom: 6px !important;
+    margin-top: 12px !important;
+    background: linear-gradient(90deg, var(--accent), var(--accent2)) !important;
+    border-color: transparent !important;
+    opacity: 1 !important;
   }
-  .v-table table tr:hover {
-  background-color: #999 !important;
-  color: #fff !important;
+
+  .titlepie {
+    font-family: 'Raleway', sans-serif !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    font-size: 12px !important;
+    letter-spacing: 0.18em !important;
+    color: var(--muted) !important;
+    margin-bottom: -20px !important;
   }
-  .v-container {
-    max-width: 100% !important;
-    margin: auto !important;
-    padding: auto !important;
+
+  .v-card { background: var(--bg2) !important; border: 1px solid var(--border) !important; box-shadow: none !important; }
+
+  .v-tabs { background: var(--bg3) !important; border-bottom: 1px solid var(--border) !important; }
+
+  .v-tab {
+    font-family: 'Space Mono', monospace !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--muted) !important;
   }
-  .v-tooltip span{
-    font-size: 17px;
-  }
-  .col-style {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
-  }
+
+  .v-tab--selected { color: var(--accent2) !important; }
+
   .v-tab__slider {
-    height: 5px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2)) !important;
+    height: 2px !important;
   }
+
+  .v-table { background: var(--bg2) !important; color: var(--text) !important; }
+
+  .v-table thead tr th {
+    font-family: 'Space Mono', monospace !important;
+    font-size: 10px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--muted) !important;
+    background: var(--bg3) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  .v-table tbody tr td {
+    font-family: 'Syne', sans-serif !important;
+    font-size: 13px !important;
+    color: var(--text) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  .v-table tbody tr:hover td { background: rgba(124,106,247,0.08) !important; }
+
+  .v-table table tr:hover { background-color: rgba(124,106,247,0.08) !important; color: var(--text) !important; }
+
+  .calculator-investment { line-height: 0.5em; }
+
+  .col-style { padding-bottom: 0 !important; padding-top: 0 !important; }
+
+  .v-tab__slider { height: 2px !important; }
+
+  .v-field__input { max-height: 44px !important; }
 </style>
