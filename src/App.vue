@@ -353,8 +353,9 @@ export default {
       const nper = frequency*this.years;
       const contribucionpie = this.payment*frequency;
       this.contribuciones = this.payment*nper;
-      this.result = rate == 0 ? 0:(this.amount * Math.pow((1+rate), nper) + this.payment*((Math.pow((1+rate), nper)-1)/rate)).toFixed(2).toLocaleString();
-      this.interes = this.result == 0 ? 0:(this.result - this.amount - this.contribuciones).toFixed(2).toLocaleString();
+      const resultRaw = rate == 0 ? 0 : (this.amount * Math.pow((1+rate), nper) + this.payment*((Math.pow((1+rate), nper)-1)/rate));
+      this.result = resultRaw.toFixed(2).toLocaleString();
+      this.interes = resultRaw == 0 ? 0 : (resultRaw - this.amount - this.contribuciones).toFixed(2).toLocaleString();
       this.inversion = this.contribuciones + this.amount;
       this.balancePrincipal = this.amount + this.payment;
       let balanceTotal = this.balancePrincipal;
@@ -455,7 +456,7 @@ export default {
         frequencyCounter++;
       }
 
-      this.chartBar.data = this.chartBarData;
+      this.chartBar.data = [...this.chartBarData];
 
       let firstValue = this.tablaAnualizada[0].ganancia;
       interesTablaFirst = firstValue;
