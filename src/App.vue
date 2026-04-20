@@ -379,17 +379,17 @@ export default {
         if (index == yearsQuantity) {
           this.chartLast.data = [{
             "categoria": "Ganancia Total",
-            "valor": interesTabla.toFixed(2),
+            "valor": interesTabla,
             "color": "#4ed8c0",
           },
-          {  
+          {
             "categoria": "Inversión Inicial",
-            "valor": this.amount.toFixed(2),
+            "valor": this.amount,
             "color": "#7c6af7",
           },
           {
             "categoria": "Contribuciones",
-            "valor": (this.payment*nper).toFixed(2),
+            "valor": this.payment*nper,
             "color": "#E6AE3F",
           }];
         }
@@ -435,9 +435,9 @@ export default {
           //BARRA CALC
           this.chartBarData.push({
             "date": actYear.toString(),
-            "principal": balanceTotal.toFixed(2),
-            "ganancia": acumuladoGanancia.toFixed(2),
-            "ganancia_total": interesTotal.toFixed(2),
+            "principal": parseFloat(balanceTotal.toFixed(2)),
+            "ganancia": parseFloat(acumuladoGanancia.toFixed(2)),
+            "ganancia_total": parseFloat(interesTotal.toFixed(2)),
             "total": balanceFinal.toLocaleString('en-US', {
               style: 'currency',
               currency: 'USD', // Cambia a tu moneda deseada (ejemplo: 'EUR', 'JPY', 'GBP', etc.)
@@ -465,33 +465,33 @@ export default {
 
       this.chart.data = [{
           "categoria": "Ganancia Total",
-          "valor": interesTablaFirst,
+          "valor": parseFloat(interesTablaFirst),
           "color": "#4ed8c0",
         },
-        {  
+        {
           "categoria": "Inversión Inicial",
-          "valor": this.amount.toFixed(2),
+          "valor": this.amount,
           "color": "#7c6af7",
         },
         {
           "categoria": "Contribuciones",
-          "valor": contribucionpie.toFixed(2),
+          "valor": contribucionpie,
           "color": "#f06fba",
         }];
-        
+
       this.chartLast.data = [{
           "categoria": "Ganancia Total",
-          "valor": graficaStartInit.toFixed(2),
+          "valor": graficaStartInit,
           "color": "#4ed8c0",
         },
-        {  
+        {
           "categoria": "Inversión Inicial",
-          "valor": this.amount.toFixed(2),
+          "valor": this.amount,
           "color": "#7c6af7",
         },
         {
           "categoria": "Contribuciones",
-          "valor": (this.payment*nper).toFixed(2),
+          "valor": this.payment*nper,
           "color": "#f06fba",
         }];
     },
