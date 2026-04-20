@@ -316,8 +316,6 @@ export default {
       tablaMensual: [],
       tablaAnualizada: [],      
       chartData: [],
-      chart: null,
-      chartLast: null,
       chartBarData: [],
     };
   },
@@ -546,7 +544,6 @@ export default {
       as.properties.shiftRadius = .1;
       pieSeries.labels.template.fill = am4core.color("#6b6b80");
       pieSeries.ticks.template.stroke = am4core.color("#6b6b80");
-      this.chart.data.reverse();
       // LEYENDA
       this.chart.legend = new am4charts.Legend();
       this.chart.legend.valueLabels.template.text = "";
@@ -633,7 +630,6 @@ export default {
       asLast.properties.shiftRadius = .1;
       pieSeriesLast.labels.template.fill = am4core.color("#6b6b80");
       pieSeriesLast.ticks.template.stroke = am4core.color("#6b6b80");
-      this.chartLast.data.reverse();
       //LEYENDA
       this.chartLast.legend = new am4charts.Legend();
       this.chartLast.legend.valueLabels.template.text = "";
